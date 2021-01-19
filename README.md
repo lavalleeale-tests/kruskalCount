@@ -5,3 +5,4 @@ This app is meant to be a quick and easy way to generate mazes.
 # Usage
 
 Simply enter java -jar /path/to/jarfile.jar to find where the chains align.
+Also accepts multiple strings to use as the "numbers" on the clock.
