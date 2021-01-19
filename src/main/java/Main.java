@@ -1,8 +1,16 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] Args) {
-        String[] clock = new String[]{"Twelve", "One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven"};
+        String[] clock;
+        if (Args.length>1) {
+            clock = Args;
+            System.out.println("Warning: Custom numbers do not always collide. This might never finish.");
+        } else {
+            clock = new String[]{"Twelve", "One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Eleven"};
+        }
+        System.out.printf("Using %s as numbers on the clock\n", Arrays.toString(clock));
         int[] clockLen = new int[clock.length];
         ArrayList<ArrayList<Integer>> paths = new ArrayList<>();
         ArrayList<Integer> toRemove = new ArrayList<>();
@@ -22,7 +30,7 @@ public class Main {
                 lastNum = path.get(path.size() - 1);
 
                 curNum = lastNum + clockLen[lastNum];
-                path.add(curNum % 12);
+                path.add(curNum % clockLen.length);
             }
             for (int i = 0; i < paths.size(); i++) {
                 curArrList = paths.get(i);
